@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "flag-icons": "^7.5.0",
+    "fontawesome-free": "^1.0.4",
+    "tinymce": "^8.5.0"
+  }
+}
