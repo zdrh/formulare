@@ -9,6 +9,9 @@ class Main extends BaseController
 {
     public function index()
     {
-        echo view('main/index');
+        $data = [
+            'type' => 0
+        ];
+        echo view('main/index', $data);
     }
 }
