@@ -85,7 +85,7 @@ class Country extends BaseController
         $short_name = $this->request->getPost('short_name');
         $description = $this->request->getPost('description');
         $id = $this->request->getPost('id');
-        $action = $this->request->getPost('action');
+       
     
          $data = [
             'name' => $name,

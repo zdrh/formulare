@@ -8,5 +8,6 @@
 <p>Tato varianta je udělaná čistě v HTML z hlediska vykreslení formulářů, neobsahuje žádnou validaci, PHP se využívá čistě pro zpracování dat z formláře a uložení do databáze.</p>
 <h2><a href="<?= base_url('form-basic-undelete') ?>">Rozšířená základní varianta</a></h2>
 <p>Základní varianta vylepšená o možnost undelete, tede o vrácení smzaných položek.</p>
-
+<h2><a href="<?= base_url('form-helper') ?>">Varianta s helperem</a></h2>
+<p>Vytvořil jsem vlastní helper pro rychlejší psaní inputů, modalů  dropdownů. TEn jsem uložil do složky helpers a následně povolil v BaseControlleru. Nyní budu jendotlivé formuláře ve view generovat pohodlněji a rychleji.</p>
 <?= $this->endSection() ?>
