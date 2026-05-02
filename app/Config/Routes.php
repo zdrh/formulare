@@ -29,5 +29,13 @@ $routes->group('form-basic-undelete','' , static function ($routes){
 
 });
 
+$routes->group('form-helper', '', static function ($routes){
+    $routes->get('/', 'Country3::index');
+});
+
+$routes->group('form-alert', '', static function ($routes){
+    $routes->get('/', 'Country4::index');
+});
+
 
 

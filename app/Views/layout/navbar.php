@@ -7,17 +7,46 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-            <?= anchor('form-basic', 'Základní verze', ['class' => 'nav-link']) ?>
-        </li>
-         <li class="nav-item">
-            <?= anchor('form-basic-undelete', 'Základní verze s obnovením smazaných', ['class' => 'nav-link']) ?>
-         
+          <?php
+            /** @var int $type */
+          if ($type == 1) {
+            echo anchor('form-basic', 'Základní verze', ['class' => 'nav-link active']);
+          } else {
+            echo anchor('form-basic', 'Základní verze', ['class' => 'nav-link']);
+          }
+          ?>
+
         </li>
         <li class="nav-item">
-           <?= anchor('form-helper', 'Využití form helperu', ['class' => 'nav-link']) ?>
+          <?php
+           
+          if ($type == 2) {
+            echo anchor('form-basic-undelete', 'Základní verze s obnovením smazaných', ['class' => 'nav-link active']);
+          } else {
+            echo anchor('form-basic-undelete', 'Základní verze s obnovením smazaných', ['class' => 'nav-link']);
+          }
+          ?>
+
         </li>
         <li class="nav-item">
-          <?= anchor('form-alert', 'Formulář s alerty', ['class' => 'nav-link']) ?>
+           <?php
+           
+          if ($type == 3) {
+            echo anchor('form-helper', 'Form helper', ['class' => 'nav-link active']);
+          } else {
+            echo anchor('form-helper', 'Form helper', ['class' => 'nav-link']);
+          }
+          ?>
+        </li>
+        <li class="nav-item">
+           <?php
+           
+          if ($type == 4) {
+            echo anchor('form-alert', 'Verze s alerty', ['class' => 'nav-link active']);
+          } else {
+            echo anchor('form-alert', 'Verze s alerty', ['class' => 'nav-link']);
+          }
+          ?>
         </li>
       </ul>
     </div>

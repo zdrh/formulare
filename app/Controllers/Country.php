@@ -21,6 +21,7 @@ class Country extends BaseController
 
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        $this->type = 1;
         $this->countryModel = new CountryModel();
         $this->stringLib = new StringLib();
         return parent::initController($request, $response, $logger);
@@ -33,6 +34,7 @@ class Country extends BaseController
        
         $data = [
             'countries' => $countries,
+            'type' => $this->type
         ];
 
         echo view('country/index', $data);
@@ -41,7 +43,8 @@ class Country extends BaseController
     public function add()
     {
         $data = [
-            'countries' => $this->countryModel->orderBy('name', 'asc')->findAll()
+            'countries' => $this->countryModel->orderBy('name', 'asc')->findAll(),
+            'type' => $this->type
         ];
 
         echo view('country/add', $data);
@@ -68,7 +71,8 @@ class Country extends BaseController
     {
         $country =  $this->countryModel->find($id);
         $data = [
-            'country' => $country
+            'country' => $country,
+            'type' => $this->type
             
         ];
 

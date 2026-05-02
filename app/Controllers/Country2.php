@@ -21,6 +21,7 @@ class Country2 extends BaseController
 
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        $this->type = 2;
         $this->countryModel = new CountryModel();
         $this->stringLib = new StringLib();
         return parent::initController($request, $response, $logger);
@@ -34,7 +35,8 @@ class Country2 extends BaseController
         $deletedCountries = $this->stringLib->cleanArray($deletedCountries, 'info');
         $data = [
             'countries' => $countries,
-            'deletedCountries' => $deletedCountries
+            'deletedCountries' => $deletedCountries,
+            'type' => $this->type
         ];
 
         echo view('country2/index', $data);
@@ -43,7 +45,8 @@ class Country2 extends BaseController
     public function add()
     {
         $data = [
-            'countries' => $this->countryModel->orderBy('name', 'asc')->findAll()
+            'countries' => $this->countryModel->orderBy('name', 'asc')->findAll(),
+            'type' => $this->type
         ];
 
         echo view('country2/add', $data);
@@ -58,7 +61,8 @@ class Country2 extends BaseController
         $data = [
             'name' => $name,
             'short_name' => $short_name,
-            'info' => $description
+            'info' => $description,
+            'type' => $this->type
         ];
 
         $this->countryModel->save($data);
@@ -72,7 +76,8 @@ class Country2 extends BaseController
         $isDeleted = $this->stringLib->deleted($country);
         $data = [
             'country' => $country,
-            'isDeleted' => $isDeleted
+            'isDeleted' => $isDeleted,
+            'type' => $this->type
         ];
 
         echo view('country2/edit', $data);
