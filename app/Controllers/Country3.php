@@ -62,6 +62,18 @@ class Country3 extends BaseController
         return redirect()->to('form-basic');
     }
 
+    public function edit(int $id)
+    {
+        $country =  $this->countryModel->withDeleted()->find($id);
+       
+        $data = [
+            'country' => $country,
+            'type' => $this->type
+        ];
+
+        echo view('country3/edit', $data);
+    }
+
       public function update()
     {
         $name = $this->request->getPost('name');
