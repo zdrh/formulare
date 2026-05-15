@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-footer bg-transparent border-0 mt-auto">
                     <div class="d-flex gap-2">
-                        <a href="<?= base_url('form-basic/country/edit/' . $row->id) ?>" class="btn btn-warning w-100 border border-dark">Edit</a>
+                        <a href="<?= base_url('form-helper/country/edit/' . $row->id) ?>" class="btn btn-warning w-100 border border-dark">Edit</a>
                         <button type="button" class="btn btn-danger border border-dark w-100" data-bs-toggle="modal" data-bs-target="#delModal<?= $row->id ?>">Delete</button>
                     </div>
                 </div>

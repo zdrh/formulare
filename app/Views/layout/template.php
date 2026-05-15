@@ -11,6 +11,7 @@
 <body>
     <?= $this->include('layout/navbar') ?>
     <div class="container">
+        <?= $this->include('layout/alert') ?>
         <?= $this->renderSection('content') ?>
     </div>
     <?= $this->include('layout/js') ?>

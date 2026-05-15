@@ -1,35 +1,42 @@
 <?= $this->extend('layout/template') ?>
 
 <?= $this->section('content') ?>
+<?php
+/** @var App\Models\Country $country */
+?>
 <h1>Add country</h1>
 <div class="row">
-    <form action="<?= base_url('form-helper/country/create') ?>" method="post">
+    <form action="<?= base_url('form-alert/country/update') ?>" method="post">
         <div class="col-md-10">
             <?php
             $atributyName = [
                 'class' => 'form-control',
                 'id'    => 'name',
-                'placeholder' => 'Enter name of country'
+                'placeholder' => 'Enter name of country',
+                'value' => $country->name
             ];
 
             $atributyShortName = [
                 'class' => 'form-control',
                 'id'    => 'short_name',
-                'placeholder' => 'Enter short_name of country'
+                'placeholder' => 'Enter short_name of country',
+                'value' => $country->short_name
             ];
 
             $atributyDescription = [
                 'class' => 'form-control',
                 'id'    => 'description',
-                'placeholder' => 'Enter short_name of country'
+                'placeholder' => 'Enter short_name of country',
+
             ];
             ?>
             <?= form_input_bs("name", $atributyName, "Name of country") ?>
 
-            <?= form_input_bs("name", $atributyShortName, "Short name of country") ?>
+            <?= form_input_bs("short_name", $atributyShortName, "Short name of country") ?>
 
-            <?= form_textarea_bs('description', 'Description of country') ?>
-
+            <?= form_textarea_bs('description', 'Description of country', $country->info) ?>
+            <?= form_hidden('_method', 'PUT') ?>
+            <?= form_hidden('id', $country->id) ?>
             <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>

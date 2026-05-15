@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <h1>Add country</h1>
 <div class="row">
-    <form action="<?= base_url('form-helper/country/create') ?>" method="post">
+    <form action="<?= base_url('form-alert/country/create') ?>" method="post">
         <div class="col-md-10">
             <?php
             $atributyName = [
@@ -26,7 +26,7 @@
             ?>
             <?= form_input_bs("name", $atributyName, "Name of country") ?>
 
-            <?= form_input_bs("name", $atributyShortName, "Short name of country") ?>
+            <?= form_input_bs("short_name", $atributyShortName, "Short name of country") ?>
 
             <?= form_textarea_bs('description', 'Description of country') ?>
 

@@ -27,7 +27,7 @@
                 'class' => 'form-control',
                 'id'    => 'description',
                 'placeholder' => 'Enter short_name of country',
-                
+
             ];
             ?>
             <?= form_input_bs("name", $atributyName, "Name of country") ?>
@@ -35,7 +35,8 @@
             <?= form_input_bs("name", $atributyShortName, "Short name of country") ?>
 
             <?= form_textarea_bs('description', 'Description of country', $country->info) ?>
-
+            <?= form_hidden('_method', 'PUT') ?>
+            <?= form_hidden('id', $country->id) ?>
             <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>

@@ -56,25 +56,19 @@ if (! function_exists('form_input_bs')) {
      *
      * @param string $name         Name atribut inputu
      * @param array  $attributes   Další atributy inputu
-     * @param string $wrapperClass Bootstrap třídy obalového divu
      * @param string $label        Text labelu
      * @param string $type         Typ inputu
      * @param bool   $floating     Použít floating label
+     * @param string $wrapperClass Bootstrap třídy obalového divu
      */
-    function form_input_bs(
-        string $name,
-        array $attributes = [],
-        string $label = '',
-        string $type = 'text',
-        bool $floating = true,
-        string $wrapperClass = 'mb-3'
+    function form_input_bs(string $name, array $attributes = [], string $label = '', string $type = 'text', bool $floating = true,string $wrapperClass = 'mb-3'
     ): string {
 
         // základní atributy inputu
         $attributes['name'] = $name;
         $attributes['type'] ??= $type;
 
-        // automatické vytvoření ID z name
+        // automatické vytvoření ID z name, pokud id nezadám do attributes
         if (! isset($attributes['id'])) {
             $attributes['id'] = preg_replace('/_+/', '_', trim(str_replace(['[', ']'], '_', $name), '_'));
         }
@@ -84,19 +78,19 @@ if (! function_exists('form_input_bs')) {
             'form-control ' . ($attributes['class'] ?? '')
         );
 
-        // floating label potřebuje placeholder
+        // floating label potřebuje placeholder, pokud chybí, přidám hodnotu z labelu
         if ($floating && ! isset($attributes['placeholder'])) {
             $attributes['placeholder'] = $label !== '' ? $label : ' ';
         }
 
-        // wrapper class
+        // wrapper class, přidám třídu form-floating, pokud chci floating labels
         $wrapperClass = trim(
             $wrapperClass . ($floating ? ' form-floating' : '')
         );
 
-        // otevření wrapperu
+        // otevření wrapperu, žačátek kodu, který na konci vrátím
         $html = '<div';
-
+        //přidám do divu jeho třídu
         if ($wrapperClass !== '') {
             $html .= ' class="' . esc($wrapperClass, 'attr') . '"';
         }
@@ -116,7 +110,7 @@ if (! function_exists('form_input_bs')) {
         $html .= '<input ' . stringify_attributes_bs($attributes) . '>';
         $html .= "\n";
 
-        // floating label za inputem
+        // floating label za inputem, pokud chci floating labels, musí být první input a label až za ním.
         if ($label !== '' && $floating) {
             $html .= "\t";
             $html .= '<label for="' . esc((string) $attributes['id'], 'attr') . '">';
