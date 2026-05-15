@@ -17,7 +17,9 @@ class StringLib
 
         return $newString;
     }
-
+/**
+ * Čištění HTML kodu o HTML značky
+ */
     public function cleanArray(array $array, string $item){
         $result = [];
 

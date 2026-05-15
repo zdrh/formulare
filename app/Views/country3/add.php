@@ -26,7 +26,7 @@
             ?>
             <?= form_input_bs("name", $atributyName, "Name of country") ?>
 
-            <?= form_input_bs("name", $atributyShortName, "Short name of country") ?>
+            <?= form_input_bs("short_name", $atributyShortName, "Short name of country") ?>
 
             <?= form_textarea_bs('description', 'Description of country') ?>
 

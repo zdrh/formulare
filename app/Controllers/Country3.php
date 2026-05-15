@@ -59,7 +59,7 @@ class Country3 extends BaseController
 
         $this->countryModel->save($data);
 
-        return redirect()->to('form-basic');
+        return redirect()->to('form-helper');
     }
 
     public function edit(int $id)
@@ -91,13 +91,13 @@ class Country3 extends BaseController
        
         $this->countryModel->save($data);
 
-        return redirect()->to('form-basic');
+        return redirect()->to('form-helper');
     }
 
     public function delete(int $id)
     {
         $this->countryModel->delete($id);
 
-        return redirect()->to('form-basic');
+        return redirect()->to('form-helper');
     }
 }
