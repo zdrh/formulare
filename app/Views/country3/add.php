@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <h1>Add country</h1>
 <div class="row">
-    <form action="<?= base_url('form-basic/country/create') ?>" method="post">
+    <form action="<?= base_url('form-helper/country/create') ?>" method="post">
         <div class="col-md-10">
             <?php
             $atributyName = [
