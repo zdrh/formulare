@@ -42,7 +42,12 @@ $routes->group('form-helper','' , static function ($routes){
 
 
 $routes->group('form-alert', '', static function ($routes){
-    $routes->get('/', 'Country4::index');
+     $routes->get('/', 'Country4::index');
+    $routes->get('country/add', 'Country4::add');
+    $routes->post('country/create', 'Country4::create');
+    $routes->get('country/edit/(:num)', 'Country4::edit/$1');
+    $routes->put('country/update', 'Country4::update');
+    $routes->delete('country/delete/(:num)', 'Country4::delete/$1');
 });
 
 
